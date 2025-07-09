@@ -1,17 +1,25 @@
-# ALX Travel App 0x01
+# Alx Travel App 003
 
-This project extends the functionality of the initial `alx_travel_app_0x00` by implementing API views for managing listings and bookings. It also integrates Swagger for API documentation.
+## Objective
 
----
+Configure Celery with RabbitMQ to handle background tasks and implement an email notification feature for bookings.
 
-##  Objective
+## Instructions
 
-Build RESTful API views to manage **Listings** and **Bookings**, and ensure all endpoints are documented using **Swagger**.
+## Duplicate Project:
 
----
+Duplicate the project alx_travel_app_0x02 to alx_travel_app_0x03
+## Configure Celery:
 
-##  Project Setup
+Set up Celery with RabbitMQ as the message broker.
+Add Celery configurations in settings.py and create a celery.py file in the project root.
+## Define Email Task:
 
-### 1. Duplicate the Project
+In listings/tasks.py, create a shared task function to send a booking confirmation email.
+Ensure the email task uses the Django email backend configured in settings.py.
+## Trigger Email Task:
 
-Duplicate your original project directory:
+Modify the BookingViewSet to trigger the email task upon booking creation using delay().
+## Test Background Task:
+
+Test the background task to ensure the email is sent asynchronously when a booking is created.

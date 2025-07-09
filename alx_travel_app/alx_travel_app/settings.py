@@ -139,3 +139,22 @@ CHAPA_API_URL = ''
 
 CHAPA_API_VERSION = 'v1'
 
+# Celery settings
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
+# Optional if you want to see task results in the DB
+INSTALLED_APPS += ['django_celery_results']
+CELERY_RESULT_BACKEND = 'django-db'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+
+
+
